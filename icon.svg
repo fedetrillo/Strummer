@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2d33"/><stop offset="1" stop-color="#15171a"/></linearGradient>
+    <radialGradient id="burst" cx="128" cy="196" r="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6c26b"/><stop offset=".45" stop-color="#e09a3e"/><stop offset=".8" stop-color="#9a4a1c"/><stop offset="1" stop-color="#4a1f0c"/>
+    </radialGradient>
+    <linearGradient id="neck" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2b1c13"/><stop offset=".5" stop-color="#4a3122"/><stop offset="1" stop-color="#2b1c13"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <g transform="translate(128 128) rotate(36) scale(0.8) translate(-128 -130)">
+    <!-- headstock and tuners -->
+    <path d="M114 4h28l3 30h-34z" fill="#2a1b12" stroke="#120c08" stroke-width="1.5"/>
+    <g fill="#d9dde2"><circle cx="108" cy="10" r="4"/><circle cx="107" cy="20" r="4"/><circle cx="106" cy="30" r="4"/><circle cx="148" cy="10" r="4"/><circle cx="149" cy="20" r="4"/><circle cx="150" cy="30" r="4"/></g>
+    <rect x="116" y="34" width="24" height="4" fill="#efe6d2"/>
+    <!-- neck -->
+    <rect x="117" y="38" width="22" height="90" fill="url(#neck)"/>
+    <g stroke="#c9ced6" stroke-width="1.6"><path d="M117 52h22M117 65h22M117 77h22M117 88h22M117 98h22M117 107h22M117 115h22"/></g>
+    <g fill="#efe6d2"><circle cx="128" cy="71" r="1.8"/><circle cx="128" cy="93" r="1.8"/></g>
+    <!-- body -->
+    <path d="M128 96C152 96 172 108 172 131c0 17-11 23-11 34 0 12 23 19 23 46 0 30-26 44-56 44s-56-14-56-44c0-27 23-34 23-46 0-11-11-17-11-34 0-23 20-35 44-35z" fill="url(#burst)" stroke="#f3e7cc" stroke-width="3.5"/>
+    <path d="M140 172c10-2 20 6 20 16 0 9-7 13-13 11-6-2-9-10-12-17-2-5 0-9 5-10z" fill="#1d1410" opacity=".85"/>
+    <circle cx="128" cy="150" r="23" fill="none" stroke="#f3e7cc" stroke-width="2.5"/>
+    <circle cx="128" cy="150" r="17" fill="#120c08"/>
+    <rect x="128" y="96" width="0" height="0"/>
+    <!-- fingerboard over the body -->
+    <rect x="117" y="96" width="22" height="34" fill="url(#neck)"/>
+    <!-- bridge -->
+    <rect x="104" y="212" width="48" height="10" rx="3" fill="#2a1b12"/>
+    <rect x="114" y="214" width="28" height="2" fill="#efe6d2"/>
+    <!-- strings -->
+    <g stroke="#f4f1ea" stroke-width="0.9" opacity=".95"><path d="M120 36L119 215M123 36L122.6 215M126 36L126 215M130 36L130 215M133 36L133.4 215M136 36L137 215"/></g>
+  </g>
+</svg>
