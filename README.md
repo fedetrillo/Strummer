@@ -49,6 +49,9 @@ up, softer upstrokes, a little human.
 If the range touches a MIDI clip without covering all of it, Strummer asks you to select inside
 the clip or in an empty gap.
 
+The first time it opens, it asks for your language and then a short guide walks you through the
+window in it; the **?** button brings it back whenever you need it.
+
 ## Support
 
 If something does not work as expected, Alt-click the version number at the top of the window:

@@ -5,7 +5,7 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const T = window.StrumTheory;
-  const VERSION = '1.0.0';
+  const VERSION = '1.0.1';
   const KEY = 'com.fedetrillo.strummer.';
   const store = {
     get: (k) => { try { return JSON.parse(localStorage.getItem(KEY + k)); } catch { return null; } },
@@ -129,6 +129,10 @@
     ...(store.get('opts') ?? {}),
   };
   const save = () => store.set('opts', opts);
+
+  // The guide: its texts, in every language.
+  for (const [c, v] of Object.entries({"en": {"help": "Quick guide", "helpBtn": "Guide", "tNext": "Next", "tBack": "Back", "tSkip": "Skip", "tDone": "Got it", "langT": "Choose your language", "langX": "The guide and the whole window will use it. You can change it later here, at the top right.", "zt": "Always at hand", "z": "Open this guide again whenever you need it with the ? button.", "q1t": "Where it writes", "q1": "Select an instrument track in LUNA and, if you like, a range.", "q2t": "Pick a chord", "q2": "Type a chord name, or pick root, type and bass. Ruler follows LUNA’s Chord ruler instead; Guitar or Piano sets the voicing.", "q3t": "What comes next", "q3": "Chords that fit the song’s key, plus a few borrowed ones: double-click one to write it.", "q4t": "Insert chords", "q4": "Choose the length and the rhythm, then Insert chords. With a fixed length and Move on, keep double-clicking suggestions to write the whole progression.", "q5t": "Strum", "q5": "Strum chords that are already there: select them (or a range), set direction, speed, softer upstrokes and human feel, and press Strum."}, "es": {"help": "Guía rápida", "helpBtn": "Guía", "tNext": "Siguiente", "tBack": "Atrás", "tSkip": "Saltar", "tDone": "Entendido", "langT": "Elige tu idioma", "langX": "La guía y toda la ventana lo usarán. Puedes cambiarlo luego aquí, arriba a la derecha.", "zt": "Siempre a mano", "z": "Vuelve a esta guía cuando la necesites con el botón ?.", "q1t": "Dónde escribe", "q1": "Selecciona una pista de instrumento en LUNA y, si quieres, un rango.", "q2t": "Elige un acorde", "q2": "Escribe el nombre de un acorde o elige fundamental, tipo y bajo. Regla sigue la regla de acordes de LUNA; Guitarra o Piano marca el voicing.", "q3t": "Lo que viene después", "q3": "Acordes que encajan en el tono de la canción y algunos prestados: doble clic en uno para escribirlo.", "q4t": "Inserta acordes", "q4": "Elige la duración y el ritmo y pulsa Insertar acordes. Con una duración fija y Avanzar, sigue haciendo doble clic en las sugerencias para escribir la progresión entera.", "q5t": "Rasguea", "q5": "Rasguea acordes que ya están: selecciónalos (o un rango), elige dirección, velocidad, subidas más suaves y toque humano, y pulsa Rasguear."}, "ca": {"help": "Guia ràpida", "helpBtn": "Guia", "tNext": "Següent", "tBack": "Enrere", "tSkip": "Saltar", "tDone": "Entesos", "langT": "Tria el teu idioma", "langX": "La guia i tota la finestra el faran servir. El pots canviar després aquí, a dalt a la dreta.", "zt": "Sempre a mà", "z": "Torna a aquesta guia quan la necessitis amb el botó ?.", "q1t": "On escriu", "q1": "Selecciona una pista d’instrument a LUNA i, si vols, un rang.", "q2t": "Tria un acord", "q2": "Escriu el nom d’un acord o tria fonamental, tipus i baix. Regle segueix el regle d’acords de LUNA; Guitarra o Piano marca el voicing.", "q3t": "El que ve després", "q3": "Acords que encaixen en el to de la cançó i alguns de manllevats: doble clic en un per escriure’l.", "q4t": "Insereix acords", "q4": "Tria la durada i el ritme i prem Inserir acords. Amb una durada fixa i Avançar, continua fent doble clic a les suggerències per escriure la progressió sencera.", "q5t": "Rasgueja", "q5": "Rasgueja acords que ja hi són: selecciona’ls (o un rang), tria direcció, velocitat, pujades més suaus i toc humà, i prem Rasguejar."}, "fr": {"help": "Guide rapide", "helpBtn": "Guide", "tNext": "Suivant", "tBack": "Retour", "tSkip": "Passer", "tDone": "Compris", "langT": "Choisissez votre langue", "langX": "Le guide et toute la fenêtre l’utiliseront. Vous pourrez la changer ici, en haut à droite.", "zt": "Toujours à portée", "z": "Rouvrez ce guide quand vous voulez avec le bouton ?.", "q1t": "Où il écrit", "q1": "Sélectionnez une piste instrument dans LUNA et, si vous voulez, une zone.", "q2t": "Choisissez un accord", "q2": "Tapez un nom d’accord, ou choisissez fondamentale, type et basse. Règle suit la règle d’accords de LUNA ; Guitare ou Piano fixe le voicing.", "q3t": "Ce qui vient ensuite", "q3": "Des accords qui vont dans la tonalité du morceau, plus quelques emprunts : double-cliquez-en un pour l’écrire.", "q4t": "Insérez les accords", "q4": "Choisissez la durée et le rythme, puis Insérer les accords. Avec une durée fixe et Avancer, continuez à double-cliquer les suggestions pour écrire toute la progression.", "q5t": "Grattez", "q5": "Grattez des accords déjà présents : sélectionnez-les (ou une zone), réglez sens, vitesse, montées plus douces et jeu humain, puis appuyez sur Gratter."}, "de": {"help": "Kurzanleitung", "helpBtn": "Anleitung", "tNext": "Weiter", "tBack": "Zurück", "tSkip": "Überspringen", "tDone": "Verstanden", "langT": "Wähle deine Sprache", "langX": "Die Anleitung und das ganze Fenster verwenden sie. Du kannst sie später hier oben rechts ändern.", "zt": "Immer zur Hand", "z": "Öffne diese Anleitung jederzeit wieder mit dem Button ?.", "q1t": "Wohin es schreibt", "q1": "Wähle in LUNA eine Instrumentspur und, wenn du willst, einen Bereich.", "q2t": "Akkord wählen", "q2": "Tipp einen Akkordnamen oder wähl Grundton, Art und Bass. Lineal folgt LUNAs Akkordlineal; Gitarre oder Piano bestimmt das Voicing.", "q3t": "Was als Nächstes kommt", "q3": "Akkorde, die zur Tonart passen, und ein paar geliehene: Doppelklick schreibt einen.", "q4t": "Akkorde einfügen", "q4": "Wähle Länge und Rhythmus, dann Akkorde einfügen. Mit fester Länge und Weiter kannst du per Doppelklick auf die Vorschläge die ganze Folge schreiben.", "q5t": "Anschlagen", "q5": "Schlag vorhandene Akkorde an: wähle sie (oder einen Bereich), stell Richtung, Tempo, sanftere Aufschläge und Gefühl ein und drück Anschlagen."}, "it": {"help": "Guida rapida", "helpBtn": "Guida", "tNext": "Avanti", "tBack": "Indietro", "tSkip": "Salta", "tDone": "Capito", "langT": "Scegli la tua lingua", "langX": "La guida e tutta la finestra la useranno. Puoi cambiarla poi qui, in alto a destra.", "zt": "Sempre a portata di mano", "z": "Riapri questa guida quando ti serve con il pulsante ?.", "q1t": "Dove scrive", "q1": "Seleziona una traccia strumento in LUNA e, se vuoi, un intervallo.", "q2t": "Scegli un accordo", "q2": "Scrivi il nome di un accordo o scegli fondamentale, tipo e basso. Righello segue il righello accordi di LUNA; Chitarra o Piano imposta il voicing.", "q3t": "Cosa viene dopo", "q3": "Accordi che stanno nella tonalità del brano, più qualcuno in prestito: doppio clic su uno per scriverlo.", "q4t": "Inserisci accordi", "q4": "Scegli durata e ritmo, poi Inserisci accordi. Con una durata fissa e Avanza, continua a fare doppio clic sui suggerimenti per scrivere tutta la progressione.", "q5t": "Strumming", "q5": "Fai lo strumming di accordi già presenti: selezionali (o un intervallo), imposta direzione, velocità, risalite più morbide e tocco umano, e premi Strum."}, "pt": {"help": "Guia rápido", "helpBtn": "Guia", "tNext": "Seguinte", "tBack": "Voltar", "tSkip": "Saltar", "tDone": "Percebi", "langT": "Escolhe o teu idioma", "langX": "O guia e toda a janela vão usá-lo. Podes mudá-lo depois aqui, em cima à direita.", "zt": "Sempre à mão", "z": "Volta a este guia quando precisares com o botão ?.", "q1t": "Onde escreve", "q1": "Seleciona uma faixa de instrumento no LUNA e, se quiseres, um intervalo.", "q2t": "Escolhe um acorde", "q2": "Escreve o nome de um acorde ou escolhe fundamental, tipo e baixo. Régua segue a régua de acordes do LUNA; Guitarra ou Piano define o voicing.", "q3t": "O que vem a seguir", "q3": "Acordes que cabem no tom da canção, mais alguns emprestados: duplo clique num para o escrever.", "q4t": "Insere acordes", "q4": "Escolhe a duração e o ritmo e carrega em Inserir acordes. Com duração fixa e Avançar, continua a fazer duplo clique nas sugestões para escrever a progressão toda.", "q5t": "Rasgueia", "q5": "Rasgueia acordes que já lá estão: seleciona-os (ou um intervalo), escolhe direção, velocidade, subidas mais suaves e toque humano, e carrega em Rasguear."}})) Object.assign(I18N[c], v);
+  let tour = null;
   let theme = store.get('theme') === 'grey' ? 'grey' : 'dark';
 
   // ---- Chord and shape -----------------------------------------------------------------------------
@@ -282,6 +286,7 @@
   }
   function paintStatic() {
     document.documentElement.lang = lang;
+    $('help').title = t('help'); $('help').setAttribute('aria-label', t('help')); { const q = document.createElement('b'); q.textContent = '?'; $('help').replaceChildren(q); }
     document.documentElement.dataset.theme = theme;
     $('ver').textContent = `v${VERSION}`;
     $('lang').replaceChildren(...LANGS.map((c) => Object.assign(document.createElement('option'), { value: c, textContent: I18N[c]._name })));
@@ -630,5 +635,24 @@
     await luna.sessions.ready();
     luna.sessions.focused.onChange(() => void build());
     await build();
+    tour ??= window.AddOnTour?.attach({
+      button: $('help'), key: `${KEY}tourSeen`,
+      labels: () => ({ next: t('tNext'), back: t('tBack'), skip: t('tSkip'), done: t('tDone') }),
+      language: {
+        sel: '#lang',
+        list: () => Object.keys(I18N).map((c) => [c, I18N[c]._name]),
+        current: () => lang,
+        set: (c) => { $('lang').value = c; $('lang').dispatchEvent(new Event('change')); },
+        title: () => t('langT'), text: () => t('langX'),
+      },
+      steps: () => [
+        { sel: '#target', title: () => t('q1t'), text: () => t('q1') },
+        { sel: '#chordRow', title: () => t('q2t'), text: () => t('q2') },
+        { sel: '#keyBox', title: () => t('q3t'), text: () => t('q3') },
+        { sel: '#insert', title: () => t('q4t'), text: () => t('q4') },
+        { sel: 'section.card:has(#strumLabel)', title: () => t('q5t'), text: () => t('q5') },
+        { sel: '#help', title: () => t('zt'), text: () => t('z') },
+      ],
+    });
   })();
 })();

@@ -3,12 +3,10 @@
     "id": "com.fedetrillo.strummer",
     "title": "Strummer",
     "name": "Strummer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "manufacturer": "Fede Trillo",
     "contact": "fedetrillo@gmail.com",
-    "description": [
-        "Write chords into MIDI and strum them like a guitarist: chord names, guitar shapes or LUNA's Chord ruler, guitar and piano voicings, rhythm patterns, next-chord suggestions in the song's key, and strumming with speed, direction, softer upstrokes and a human feel."
-    ],
+    "description": "Chords that sound like a guitarist played them. Type a chord, use guitar shapes or LUNA's Chord ruler, and Strummer writes it with real strum timing: speed, direction, softer upstrokes and a human feel. Next-chord suggestions in your key build the progression for you. Getting-started guide, 7 languages.",
     "categories": [
         "MIDI",
         "Create"
