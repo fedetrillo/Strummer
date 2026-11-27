@@ -1,9 +1,8 @@
 # Strummer for LUNA
 
-Write chords into a MIDI track and strum them like a guitarist. Type a chord, pick a guitar
-shape or use LUNA's Chord ruler; choose a rhythm; get suggestions for what comes next in the
-song's key; and turn block chords into real strums: strings a few milliseconds apart, down or
-up, softer upstrokes, a little human.
+Chords that sound like a guitarist played them. Type a chord, use guitar shapes or LUNA's Chord
+ruler, and Strummer writes it with real strum timing: speed, direction, softer upstrokes and a
+human feel. Next-chord suggestions in your key build the progression for you.
 
 <p>
   <img src="docs/screenshot-dark.png" alt="Strummer, dark theme" width="300">

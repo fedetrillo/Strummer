@@ -5,7 +5,7 @@
 (() => {
   const $ = (id) => document.getElementById(id);
   const T = window.StrumTheory;
-  const VERSION = '1.0.1';
+  const VERSION = '1.0.2';
   const KEY = 'com.fedetrillo.strummer.';
   const store = {
     get: (k) => { try { return JSON.parse(localStorage.getItem(KEY + k)); } catch { return null; } },
@@ -619,7 +619,7 @@
     $('ver').onclick = async (ev) => {
       if (!ev.altKey) return;
       const text = JSON.stringify({ version: VERSION, opts, target: (() => { const g = target(); return { tracks: g.tracks.map((x) => x.name.value), S: g.S, E: g.E, auto: g.auto }; })(), log }, null, 2);
-      try { await navigator.clipboard.writeText(text); say('copied', {}, 'ok', 3000); } catch { /* nothing to do */ }
+      try { if (await AddOnCopy(text)) say('copied', {}, 'ok', 5000); } catch { /* nothing to do */ }
     };
     for (const p of [ctx.selectionStart, ctx.selectionStop, ctx.selectionTracks, ctx.lastSelectedTrack, ctx.selectionNotes, tr.playStart]) p?.onChange?.(() => paintTarget());
     s.musical.chords.onChange?.(() => paintTarget());
